@@ -8,8 +8,11 @@ import {
   type Mock,
 } from 'bun:test'
 import { setTimeout } from 'node:timers/promises'
-import { createMockConsumer, type MockConsumer } from '../src/mocks/Consumer'
-import { setupGracefulConsumerShutdown } from '../src/consumer'
+import {
+  createMockConsumer,
+  type MockConsumer,
+} from 'kafka-util/mocks/Consumer'
+import { setupGracefulConsumerShutdown } from 'kafka-util/consumer'
 
 describe('setupGracefulConsumerShutdown', () => {
   let exitProcess: Mock<() => void>
@@ -20,7 +23,7 @@ describe('setupGracefulConsumerShutdown', () => {
     mockConsumer = createMockConsumer()
     abortController = new AbortController()
     exitProcess = mock(() => {})
-    await mock.module('../src/process', () => ({
+    await mock.module('kafka-util/process', () => ({
       preventNormalProcessExit: mock(() => ({
         exitProcess,
         processAbortSignal: abortController.signal,

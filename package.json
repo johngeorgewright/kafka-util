@@ -3,7 +3,8 @@
   "type": "module",
   "exports": {
     "./consumer": "./dist/consumer.js",
-    "./mocks": "./dist/mocks/index.js",
+    "./mocks/Consumer": "./dist/mocks/Consumer.js",
+    "./mocks/Logger": "./dist/mocks/Logger.js",
     "./process": "./dist/process.js"
   },
   "devDependencies": {
