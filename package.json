@@ -1,0 +1,23 @@
+{
+  "name": "kafka-util",
+  "type": "module",
+  "exports": {
+    "./consumer": "./dist/consumer.js",
+    "./mocks/Consumer": "./dist/mocks/Consumer.js",
+    "./mocks/Logger": "./dist/mocks/Logger.js",
+    "./process": "./dist/process.js"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "prettier": "^3.8.0"
+  },
+  "dependencies": {
+    "es-toolkit": "^1.44.0",
+    "kafkajs": "^2.2.4",
+    "tslib": "^2.8.1"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "bun run build && bun test"
+  }
+}
