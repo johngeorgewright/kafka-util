@@ -8,7 +8,7 @@ import {
   type Mock,
 } from 'bun:test'
 import { setTimeout } from 'node:timers/promises'
-import { createMockConsumer, type ConsumerMock } from './mocks/Consumer'
+import { createMockConsumer, type ConsumerMock } from '../src/mocks/Consumer'
 import { setupGracefulConsumerShutdown } from '../src/consumer'
 
 describe('setupGracefulConsumerShutdown', () => {
