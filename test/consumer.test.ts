@@ -8,12 +8,12 @@ import {
   type Mock,
 } from 'bun:test'
 import { setTimeout } from 'node:timers/promises'
-import { createMockConsumer, type ConsumerMock } from '../src/mocks/Consumer'
+import { createMockConsumer, type MockConsumer } from '../src/mocks/Consumer'
 import { setupGracefulConsumerShutdown } from '../src/consumer'
 
 describe('setupGracefulConsumerShutdown', () => {
   let exitProcess: Mock<() => void>
-  let mockConsumer: ConsumerMock
+  let mockConsumer: MockConsumer
   let abortController: AbortController
 
   beforeEach(async () => {

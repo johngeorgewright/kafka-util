@@ -1,7 +1,7 @@
 import { mock, type Mock } from 'bun:test'
 import type { Logger, logLevel } from 'kafkajs'
 
-export function createMockLogger(): LoggerMock {
+export function createMockLogger(): MockLogger {
   return {
     info: mock(() => {}),
     error: mock(() => {}),
@@ -12,7 +12,7 @@ export function createMockLogger(): LoggerMock {
   }
 }
 
-export interface LoggerMock extends Logger {
+export interface MockLogger extends Logger {
   info: Mock<(message: string, extra?: object) => void>
   error: Mock<(message: string, extra?: object) => void>
   warn: Mock<(message: string, extra?: object) => void>

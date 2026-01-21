@@ -1,8 +1,8 @@
 import { mock, type Mock } from 'bun:test'
-import { createMockLogger, type LoggerMock } from './Logger'
+import { createMockLogger, type MockLogger } from './Logger'
 import type { Consumer, TopicPartitions } from 'kafkajs'
 
-export function createMockConsumer(): ConsumerMock {
+export function createMockConsumer(): MockConsumer {
   return {
     connect: mock(() => Promise.resolve()),
     disconnect: mock(() => Promise.resolve()),
@@ -21,7 +21,7 @@ export function createMockConsumer(): ConsumerMock {
   }
 }
 
-export interface ConsumerMock extends Consumer {
+export interface MockConsumer extends Consumer {
   connect: Mock<() => Promise<void>>
   disconnect: Mock<() => Promise<void>>
   subscribe: Mock<() => Promise<void>>
@@ -35,7 +35,7 @@ export interface ConsumerMock extends Consumer {
   resume: Mock<
     (topics: Array<{ topic: string; partitions?: number[] }>) => void
   >
-  logger: Mock<() => LoggerMock>
+  logger: Mock<() => MockLogger>
   on: Mock<() => () => void>
   events: any
 }
