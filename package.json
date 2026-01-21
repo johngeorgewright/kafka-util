@@ -1,0 +1,23 @@
+{
+  "name": "kafka-util",
+  "type": "module",
+  "exports": {
+    "./consumer": "./dist/consumer.js",
+    "./process": "./dist/process.js"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "kafkajs": "^2.2.4",
+    "prettier": "^3.8.0"
+  },
+  "peerDependencies": {
+    "kafkajs": "^2",
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "es-toolkit": "^1.44.0"
+  },
+  "scripts": {
+    "build": "tsc"
+  }
+}
